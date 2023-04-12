@@ -1,0 +1,3 @@
+# Introduction
+
+Simple introduction to data and data science.

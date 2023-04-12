@@ -1,0 +1,69 @@
+---
+title: "data-structure"
+editor: visual
+---
+
+## Introduction
+
+A data set is a collection of observations. These observations consist of one or more variables, or quantities that can change from observation to observation.
+
+R has several data structures for storing data. We will focus on the data.frame type.
+
+It's helpful to begin with one of the many data sets that are included with R. In particular, the iris data set is a great data set to begin with.
+
+The iris data set consists of 150 observations with 5 variables. By typing iris in the command line, we will see the entrie data set.
+
+For brevity, we can use the head() function to look at the first few rows of the data set:
+
+```{r}
+head(iris)
+```
+
+The first four variables represent the length and width measurements of each iris flower's sepal and petal, and the last variable lists the species of the iris flower.
+
+## Extracting Values from a Data Frame
+
+Sometimes we may just care about certain aspects of the data set. There are a few ways to get a specific row or a specfic column of the data set (or even a specific value!)
+
+To access specific rows or columns, we can use square brackets after the name of the data frame.
+
+```{r}
+#| eval: false
+
+iris["row number","column number"]
+```
+
+So, if we wanted to pick out the value in the third row and the fourth column, we would use:
+
+```{r}
+iris[3,4]
+```
+
+Note that this gives us the third value in the Petal.Width column (the fourth column)
+
+If we want to get an entire row or an entire column, we would leave that corresponding portion blank. For the entire fifth row of the iris data set, we have:
+
+```{r}
+iris[5,]
+```
+
+For the entire second column, we can use:
+
+```{r}
+iris[,2]
+```
+
+We can also access columns using the dollar sign operator and then using the column name:
+
+```{r}
+iris$Sepal.Width
+```
+
+## Exercises
+
+1. Consider using the mtcars data set in R. What are two different ways that we could get just the values in the wt (weight) variable?
+
+2. Using the mtcars data set in R, how could we find the 18th value in the mpg variable?
+
+3. How could I get just the first 3 rows of this data set?
+

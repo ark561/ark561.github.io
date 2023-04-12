@@ -1,0 +1,11 @@
+# Introduction {.unnumbered}
+
+This is a work-in-progress for the book for STAT 1300: Introduction to Data Science offered through the [Mathematics Department](https://www.cscc.edu/academics/departments/math/) at [Columbus State Community College](https://www.cscc.edu).
+
+STAT 1300 serves as a quantitative-reasoning based course for data science. While data science is a deep and complicated field, a basic familiarity can go a long way in terms of understanding and using results from data science to inform decision making.
+
+This course is a non-calculus based data analysis course. This course will make heavy use of the [R programming language](https://www.r-project.org) and will utilize [R Studio Online through Posit](https://login.posit.cloud/login?redirect=%2F).
+
+In this book, you will cover the basic functions of the R programming language while learning various aspects of data analysis. While there are instances of performing calculations, the vast majority of the work will be done in R.
+
+------------------------------------------------------------------------

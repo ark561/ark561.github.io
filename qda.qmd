@@ -1,0 +1,4 @@
+---
+title: "qda"
+editor: visual
+---

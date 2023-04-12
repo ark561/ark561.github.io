@@ -1,0 +1,72 @@
+---
+title: "variable-type"
+editor: visual
+---
+
+## Introduction
+
+In the previous section, we looked at general data structures in R, specifically using a data.frame, as well as how to extract a certain row or column of a data set.
+
+In this section, we will look closer at the variables: specifically, the different *types* of variables we can encounter.
+
+In general, there are two major classes of variables: quantitative variables and qualitative variables.
+
+**Quantitative Variables** are variables that are numerical, and for which simple arithmetic operations, such as addition and multiplication, make sense. Some examples of quantitative variables include the sepal and petal measurements in the iris data set, as well as all of the variables in the mtcars data set.
+
+**Qualitative Variables**, also sometimes called categorical variables, describe a quality or category of the observation. Typically these will be text or words. Some examples of qualitative variables include the species variable in the iris data set, as well as the group and ID variables in the sleep data set.
+
+It should be noted that occasionally qualitative variables will use numbers. This is often for convenience. For example, instead of using the species of setosa, veriscolor, and virginica, we could have just labeled them as species 1, 2, and 3.
+
+R gets far more granualr in its classification. Rather than just using quantitative and qualitative as labels, there are further break downs we can use.
+
+|Quantitative | Qualitative|
+|:----:|:-----:|
+|numeric|logical|
+|raw|character|
+|integer|factor|
+|complex||
+
+
+
+## How to Determine the Variable Type
+
+It may be difficult to know immediately what type each variable fits into. There are a few ways to do this. 
+
+The first is to use the class() function. If we specify a column in a data set, we can use the class() function to learn how R is storing the values.
+
+For example, let's look at the class of the Petal.Length and Species variables in the iris data set:
+
+```{r}
+class(iris$Petal.Length)
+```
+
+```{r}
+class(iris[,5])
+```
+
+We see that we get `r class(iris$Petal.Length)` for the Petal.Length variable and we get `r class(iris$Species)` for the Species variable. This means that Petal.Length is a quantiative variable and Species is a qualitative variable.
+
+
+If we have an entire data frame, we can use the str() function to find the _structure_ of the data set. This will list all of the variables (column) along with their types, as well as the first few observations.
+
+If we look at the sleep data set, we have:
+
+```{r}
+str(sleep)
+```
+
+The variable extra is a numeric variable (quantitative), and the variables group and ID are factors (qualitative).
+
+
+## Examples
+
+1. List the variables of the ToothGrowth data set as well as whether each variable is quantitative or qualitative.
+
+2. List the variables of the USArrests data set as well as whether each variable is quantitative or qualitative.
+
+3. List the variables of the mtcars data set as well as whether each variable is quantitative or qualitative.
+
+4. List the variables of the ChickWeight data set as well as whether each variable is quantitative or qualitative.
+
+
+

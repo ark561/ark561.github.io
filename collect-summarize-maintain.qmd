@@ -1,0 +1,14 @@
+---
+title: "collect-summarize-maintain"
+format: html
+editor: visual
+---
+
+The fundamental basis of this course is data. Data can come in different forms: raw numbers, results from a survey, and video recordings, for example. By the end of this section, you should be able to:
+
+-   Identify the variables and individuals in a data set
+-   Work with R's internal data sets using simple commands in R
+-   Read in data from a file
+-   Read in data from a website
+-   Identify the types of variables in a data set
+-   Summarize a data set via measures of center and measures of spread

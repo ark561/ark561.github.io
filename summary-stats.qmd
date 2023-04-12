@@ -1,0 +1,114 @@
+---
+title: "summary-stats"
+editor: visual
+---
+
+## Introduction
+Now that we have an idea of how to look at different variables and classify as quantiative or qualitative variables, we can look at summaries for both types of variable.
+
+## Summarizing Quantitative Variables
+
+Summary statistics provide snapshots of a variable by providing values that give information about a variable.
+
+### The Sample Mean
+
+The _sample mean_ of a variable is a measure of center; that is, it gives a value that represents a typical value of the data set. It is calculated by adding up all of the values in a data set divided by the number of values in that sum.
+
+In R, we use the `mean()` function.
+
+Suppose we have a variable defined below:
+
+```{r}
+x = c(85, 71, 68, 89, 92)
+```
+
+We could find the mean by hand:
+
+$$\frac{85 + 71 + 68 + 89 + 92}{5} = \frac{405}{5} = 81$$
+
+We can also use the `mean()` function:
+```{r}
+mean(x)
+```
+
+
+If we want to find the mean `Sepal.Length` measurement in the `iris` data set:
+
+```{r}
+mean(iris$Sepal.Length)
+```
+
+
+### The Sample Median
+
+The _sample median_ is another measure of center, but rather than using the raw values, the median considers which value is in the middle position when the data are sorted in ascending order.
+
+The calculation for the median differs depending on the number of observations in the calculation.
+
+1. If there are an even number of observations, then the median is the sample mean of the values in the $\frac{n}{2}$ and $\frac{n}{2} + 1$ positions of the sorted data set.
+
+2. If there is an odd number of observations, then the median is the value in the $\frac{n + 1}{2}$ position of the sorted data set.
+
+
+Consider the two following data sets:
+
+```{r}
+x = c(85, 71, 68, 89, 92)
+y = c(103, 110, 93, 81, 109, 100)
+```
+
+
+To calculate the median for $x$, we first need to sort the data:
+
+
+`r sort(x)`
+
+
+Now, since there is an odd number of values ($n = `r length(x)`$), we take the value in position $`r ceiling(length(x)/2)`$, or $`r sort(x)[ceiling(length(x)/2)]`$.
+
+So, we have the median of $x$ to be `r median(x)`.
+
+
+To calculate the median for $y$, we first sort the data:
+
+`r sort(y)`
+
+
+Now, since there is an even number of values ($n = `r length(y)`$), we take the sample mean of the values in positions `r length(y)/2` and `r length(y)/2 + 1`, or the values `r sort(y)[length(y)/2]` and `r sort(y)[length(y)/2 + 1]`. So the median for $y$ is:
+
+$$\frac{100 + 103}{2} = \frac{203}{2} = 101.5$$
+
+Note that the median does not necessarily need to be a value in the data set - it describes a position in the data set. 
+
+The median is the value such that *at least* half of the observations are less than or equal to the median, and *at least* half of the observations are greater than or equal to the median. Effecitvely, the median divides the data set into halves.
+
+
+In R, we can just use the `median()` fnction:
+
+```{r}
+median(x)
+```
+
+```{r}
+median(y)
+```
+
+
+Once nice aspect here is that the R function takes care of the sorting.
+
+
+### The Sample Quartiles ($Q_1$ and $Q_3$)
+
+We just saw how the median can split a data set into halves. On occasion, we will want to chop up the data set into more pieces. Eventually, we will discuss the idea of a _percentile_, but for now we will focus on quartiles.
+
+The _first quartile_, often denoted as $Q_1$, is the value that divides the bottom 25% of the data set from the upper 75% of the data set. Mechanically, to find $Q_1$, we find the median of the data that are *less than or equal to the median*.
+
+The _third quartile_, often denoted as $Q_3$, is the value that divides the bottom 75% of the data set from the upper 25% of the data set. Mechanically, to find $Q_3$, we find the median of the data that are *greater than or equal to the median*.
+
+
+To find quartiles, we will use the `quantile` function (notice the difference in spelling!). The syntax is as follows:
+
+`quantile(data,probs)`
+
+Where `data` is your data set and `probs` is a collection of the corresponding percentile values.
+

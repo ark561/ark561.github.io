@@ -1,0 +1,4 @@
+---
+title: "scatterplot"
+editor: visual
+---

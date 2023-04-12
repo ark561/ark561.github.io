@@ -1,0 +1,25 @@
+---
+title: "preface_1ed"
+format: html
+editor: visual
+---
+
+Welcome to the first edition of the textbook for STAT 1300! This is a new class, so there are likely to be several changes and updates over the course of the first few iterations of the class.
+
+Below is a summary of the items we will cover in the book:
+
+* Understand data structures (observations, variables), as well as types of variables (quantitative, qualitative).
+
+* Read in and summarize data in different formats (.csv, .xlsx, from a website)
+
+* Create graphical summaries of variables
+
+* Create and explain the properties of a linear regression model
+
+* Understand and run classification, both supervised and unsupervised, for a simple data set
+
+* Discuss ethical issues surrounding classification methods
+
+
+
+

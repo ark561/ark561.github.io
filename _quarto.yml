@@ -1,0 +1,67 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "STAT 1300: Introduction to Data Science"
+  author: "Andrew Kerr"
+  date: "2/15/2023"
+  chapters:
+    - index.qmd
+    
+    - preface_1ed.qmd
+    - intro.qmd
+    
+    - part: collect-summarize-maintain.qmd
+      chapters: 
+        - data-structure.qmd
+        - variable-type.qmd
+        - summary-stats.qmd
+        - outliers.qmd
+        - reading-r-data.qmd
+    - part: data-visualization.qmd
+      chapters:
+        - univariate-bar-chart.qmd
+        - univariate-histogram.qmd
+        - univariate-boxplot.qmd
+        - multiple-graphs.qmd
+        - scatterplot.qmd
+        - dynamic-graphs.qmd
+        - misuses-visualization.qmd
+        - metric-represent.qmd
+    - part: statistical-models.qmd
+      chapters:
+        - linear-model-intro.qmd
+        - linear-assumptions.qmd
+        - linear-model-part1.qmd
+        - linear-model-part2.qmd
+        - simulation-linear.qmd
+    - part: statistical-learning.qmd
+      chapters:
+        - learning-intro.qmd
+        - supervised-learning.qmd
+        - lda.qmd
+        - qda.qmd
+        - cart-class.qmd
+        - random-forests.qmd
+        - unsupervised-learning.qmd
+        - knn.qmd
+        - h-clustering.qmd
+    - part: add-topics-learning.qmd
+      chapters:
+        - proper-use.qmd
+        - unfair-treatment.qmd
+        - ethics.qmd
+    
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

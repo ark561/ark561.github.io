@@ -1,0 +1,4 @@
+---
+title: "linear-model-part2"
+editor: visual
+---
