@@ -1,0 +1,86 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STAT 1300: Introduction to Data Science",
+    "section": "",
+    "text": "Introduction\nThis is a work-in-progress for the book for STAT 1300: Introduction to Data Science offered through the Mathematics Department at Columbus State Community College.\nSTAT 1300 serves as a quantitative-reasoning based course for data science. While data science is a deep and complicated field, a basic familiarity can go a long way in terms of understanding and using results from data science to inform decision making.\nThis course is a non-calculus based data analysis course. This course will make heavy use of the R programming language and will utilize R Studio Online through Posit.\nIn this book, you will cover the basic functions of the R programming language while learning various aspects of data analysis. While there are instances of performing calculations, the vast majority of the work will be done in R."
+  },
+  {
+    "objectID": "preface_1ed.html",
+    "href": "preface_1ed.html",
+    "title": "1  preface_1ed",
+    "section": "",
+    "text": "Welcome to the first edition of the textbook for STAT 1300! This is a new class, so there are likely to be several changes and updates over the course of the first few iterations of the class.\nBelow is a summary of the items we will cover in the book:\n\nUnderstand data structures (observations, variables), as well as types of variables (quantitative, qualitative).\nRead in and summarize data in different formats (.csv, .xlsx, from a website)\nCreate graphical summaries of variables\nCreate and explain the properties of a linear regression model\nUnderstand and run classification, both supervised and unsupervised, for a simple data set\nDiscuss ethical issues surrounding classification methods"
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "2  Introduction",
+    "section": "",
+    "text": "Simple introduction to data and data science."
+  },
+  {
+    "objectID": "collect-summarize-maintain.html",
+    "href": "collect-summarize-maintain.html",
+    "title": "collect-summarize-maintain",
+    "section": "",
+    "text": "The fundamental basis of this course is data. Data can come in different forms: raw numbers, results from a survey, and video recordings, for example. By the end of this section, you should be able to:\n\nIdentify the variables and individuals in a data set\nWork with R’s internal data sets using simple commands in R\nRead in data from a file\nRead in data from a website\nIdentify the types of variables in a data set\nSummarize a data set via measures of center and measures of spread"
+  },
+  {
+    "objectID": "data-structure.html#introduction",
+    "href": "data-structure.html#introduction",
+    "title": "3  data-structure",
+    "section": "3.1 Introduction",
+    "text": "3.1 Introduction\nA data set is a collection of observations. These observations consist of one or more variables, or quantities that can change from observation to observation.\nR has several data structures for storing data. We will focus on the data.frame type.\nIt’s helpful to begin with one of the many data sets that are included with R. In particular, the iris data set is a great data set to begin with.\nThe iris data set consists of 150 observations with 5 variables. By typing iris in the command line, we will see the entrie data set.\nFor brevity, we can use the head() function to look at the first few rows of the data set:\n\nhead(iris)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n\nThe first four variables represent the length and width measurements of each iris flower’s sepal and petal, and the last variable lists the species of the iris flower."
+  },
+  {
+    "objectID": "data-structure.html#extracting-values-from-a-data-frame",
+    "href": "data-structure.html#extracting-values-from-a-data-frame",
+    "title": "3  data-structure",
+    "section": "3.2 Extracting Values from a Data Frame",
+    "text": "3.2 Extracting Values from a Data Frame\nSometimes we may just care about certain aspects of the data set. There are a few ways to get a specific row or a specfic column of the data set (or even a specific value!)\nTo access specific rows or columns, we can use square brackets after the name of the data frame.\n\niris[\"row number\",\"column number\"]\n\nSo, if we wanted to pick out the value in the third row and the fourth column, we would use:\n\niris[3,4]\n\n[1] 0.2\n\n\nNote that this gives us the third value in the Petal.Width column (the fourth column)\nIf we want to get an entire row or an entire column, we would leave that corresponding portion blank. For the entire fifth row of the iris data set, we have:\n\niris[5,]\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n5            5         3.6          1.4         0.2  setosa\n\n\nFor the entire second column, we can use:\n\niris[,2]\n\n  [1] 3.5 3.0 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 3.7 3.4 3.0 3.0 4.0 4.4 3.9 3.5\n [19] 3.8 3.8 3.4 3.7 3.6 3.3 3.4 3.0 3.4 3.5 3.4 3.2 3.1 3.4 4.1 4.2 3.1 3.2\n [37] 3.5 3.6 3.0 3.4 3.5 2.3 3.2 3.5 3.8 3.0 3.8 3.2 3.7 3.3 3.2 3.2 3.1 2.3\n [55] 2.8 2.8 3.3 2.4 2.9 2.7 2.0 3.0 2.2 2.9 2.9 3.1 3.0 2.7 2.2 2.5 3.2 2.8\n [73] 2.5 2.8 2.9 3.0 2.8 3.0 2.9 2.6 2.4 2.4 2.7 2.7 3.0 3.4 3.1 2.3 3.0 2.5\n [91] 2.6 3.0 2.6 2.3 2.7 3.0 2.9 2.9 2.5 2.8 3.3 2.7 3.0 2.9 3.0 3.0 2.5 2.9\n[109] 2.5 3.6 3.2 2.7 3.0 2.5 2.8 3.2 3.0 3.8 2.6 2.2 3.2 2.8 2.8 2.7 3.3 3.2\n[127] 2.8 3.0 2.8 3.0 2.8 3.8 2.8 2.8 2.6 3.0 3.4 3.1 3.0 3.1 3.1 3.1 2.7 3.2\n[145] 3.3 3.0 2.5 3.0 3.4 3.0\n\n\nWe can also access columns using the dollar sign operator and then using the column name:\n\niris$Sepal.Width\n\n  [1] 3.5 3.0 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 3.7 3.4 3.0 3.0 4.0 4.4 3.9 3.5\n [19] 3.8 3.8 3.4 3.7 3.6 3.3 3.4 3.0 3.4 3.5 3.4 3.2 3.1 3.4 4.1 4.2 3.1 3.2\n [37] 3.5 3.6 3.0 3.4 3.5 2.3 3.2 3.5 3.8 3.0 3.8 3.2 3.7 3.3 3.2 3.2 3.1 2.3\n [55] 2.8 2.8 3.3 2.4 2.9 2.7 2.0 3.0 2.2 2.9 2.9 3.1 3.0 2.7 2.2 2.5 3.2 2.8\n [73] 2.5 2.8 2.9 3.0 2.8 3.0 2.9 2.6 2.4 2.4 2.7 2.7 3.0 3.4 3.1 2.3 3.0 2.5\n [91] 2.6 3.0 2.6 2.3 2.7 3.0 2.9 2.9 2.5 2.8 3.3 2.7 3.0 2.9 3.0 3.0 2.5 2.9\n[109] 2.5 3.6 3.2 2.7 3.0 2.5 2.8 3.2 3.0 3.8 2.6 2.2 3.2 2.8 2.8 2.7 3.3 3.2\n[127] 2.8 3.0 2.8 3.0 2.8 3.8 2.8 2.8 2.6 3.0 3.4 3.1 3.0 3.1 3.1 3.1 2.7 3.2\n[145] 3.3 3.0 2.5 3.0 3.4 3.0"
+  },
+  {
+    "objectID": "data-structure.html#exercises",
+    "href": "data-structure.html#exercises",
+    "title": "3  data-structure",
+    "section": "3.3 Exercises",
+    "text": "3.3 Exercises\n\nConsider using the mtcars data set in R. What are two different ways that we could get just the values in the wt (weight) variable?\nUsing the mtcars data set in R, how could we find the 18th value in the mpg variable?\nHow could I get just the first 3 rows of this data set?"
+  },
+  {
+    "objectID": "variable-type.html#introduction",
+    "href": "variable-type.html#introduction",
+    "title": "4  variable-type",
+    "section": "4.1 Introduction",
+    "text": "4.1 Introduction\nIn the previous section, we looked at general data structures in R, specifically using a data.frame, as well as how to extract a certain row or column of a data set.\nIn this section, we will look closer at the variables: specifically, the different types of variables we can encounter.\nIn general, there are two major classes of variables: quantitative variables and qualitative variables.\nQuantitative Variables are variables that are numerical, and for which simple arithmetic operations, such as addition and multiplication, make sense. Some examples of quantitative variables include the sepal and petal measurements in the iris data set, as well as all of the variables in the mtcars data set.\nQualitative Variables, also sometimes called categorical variables, describe a quality or category of the observation. Typically these will be text or words. Some examples of qualitative variables include the species variable in the iris data set, as well as the group and ID variables in the sleep data set.\nIt should be noted that occasionally qualitative variables will use numbers. This is often for convenience. For example, instead of using the species of setosa, veriscolor, and virginica, we could have just labeled them as species 1, 2, and 3.\nR gets far more granualr in its classification. Rather than just using quantitative and qualitative as labels, there are further break downs we can use.\n\n\n\nQuantitative\nQualitative\n\n\n\n\nnumeric\nlogical\n\n\nraw\ncharacter\n\n\ninteger\nfactor\n\n\ncomplex"
+  },
+  {
+    "objectID": "variable-type.html#how-to-determine-the-variable-type",
+    "href": "variable-type.html#how-to-determine-the-variable-type",
+    "title": "4  variable-type",
+    "section": "4.2 How to Determine the Variable Type",
+    "text": "4.2 How to Determine the Variable Type\nIt may be difficult to know immediately what type each variable fits into. There are a few ways to do this.\nThe first is to use the class() function. If we specify a column in a data set, we can use the class() function to learn how R is storing the values.\nFor example, let’s look at the class of the Petal.Length and Species variables in the iris data set:\n\nclass(iris$Petal.Length)\n\n[1] \"numeric\"\n\n\n\nclass(iris[,5])\n\n[1] \"factor\"\n\n\nWe see that we get numeric for the Petal.Length variable and we get factor for the Species variable. This means that Petal.Length is a quantiative variable and Species is a qualitative variable.\nIf we have an entire data frame, we can use the str() function to find the structure of the data set. This will list all of the variables (column) along with their types, as well as the first few observations.\nIf we look at the sleep data set, we have:\n\nstr(sleep)\n\n'data.frame':   20 obs. of  3 variables:\n $ extra: num  0.7 -1.6 -0.2 -1.2 -0.1 3.4 3.7 0.8 0 2 ...\n $ group: Factor w/ 2 levels \"1\",\"2\": 1 1 1 1 1 1 1 1 1 1 ...\n $ ID   : Factor w/ 10 levels \"1\",\"2\",\"3\",\"4\",..: 1 2 3 4 5 6 7 8 9 10 ...\n\n\nThe variable extra is a numeric variable (quantitative), and the variables group and ID are factors (qualitative)."
+  },
+  {
+    "objectID": "variable-type.html#examples",
+    "href": "variable-type.html#examples",
+    "title": "4  variable-type",
+    "section": "4.3 Examples",
+    "text": "4.3 Examples\n\nList the variables of the ToothGrowth data set as well as whether each variable is quantitative or qualitative.\nList the variables of the USArrests data set as well as whether each variable is quantitative or qualitative.\nList the variables of the mtcars data set as well as whether each variable is quantitative or qualitative.\nList the variables of the ChickWeight data set as well as whether each variable is quantitative or qualitative."
+  },
+  {
+    "objectID": "summary-stats.html#introduction",
+    "href": "summary-stats.html#introduction",
+    "title": "5  summary-stats",
+    "section": "5.1 Introduction",
+    "text": "5.1 Introduction\nNow that we have an idea of how to look at different variables and classify as quantiative or qualitative variables, we can look at summaries for both types of variable."
+  },
+  {
+    "objectID": "summary-stats.html#summarizing-quantitative-variables",
+    "href": "summary-stats.html#summarizing-quantitative-variables",
+    "title": "5  summary-stats",
+    "section": "5.2 Summarizing Quantitative Variables",
+    "text": "5.2 Summarizing Quantitative Variables\nSummary statistics provide snapshots of a variable by providing values that give information about a variable.\n\n5.2.1 The Sample Mean\nThe sample mean of a variable is a measure of center; that is, it gives a value that represents a typical value of the data set. It is calculated by adding up all of the values in a data set divided by the number of values in that sum.\nIn R, we use the mean() function.\nSuppose we have a variable defined below:\n\nx = c(85, 71, 68, 89, 92)\n\nWe could find the mean by hand:\n\\[\\frac{85 + 71 + 68 + 89 + 92}{5} = \\frac{405}{5} = 81\\]\nWe can also use the mean() function:\n\nmean(x)\n\n[1] 81\n\n\nIf we want to find the mean Sepal.Length measurement in the iris data set:\n\nmean(iris$Sepal.Length)\n\n[1] 5.843333\n\n\n\n\n5.2.2 The Sample Median\nThe sample median is another measure of center, but rather than using the raw values, the median considers which value is in the middle position when the data are sorted in ascending order.\nThe calculation for the median differs depending on the number of observations in the calculation.\n\nIf there are an even number of observations, then the median is the sample mean of the values in the \\(\\frac{n}{2}\\) and \\(\\frac{n}{2} + 1\\) positions of the sorted data set.\nIf there is an odd number of observations, then the median is the value in the \\(\\frac{n + 1}{2}\\) position of the sorted data set.\n\nConsider the two following data sets:\n\nx = c(85, 71, 68, 89, 92)\ny = c(103, 110, 93, 81, 109, 100)\n\nTo calculate the median for \\(x\\), we first need to sort the data:\n68, 71, 85, 89, 92\nNow, since there is an odd number of values (\\(n = 5\\)), we take the value in position \\(3\\), or \\(85\\).\nSo, we have the median of \\(x\\) to be 85.\nTo calculate the median for \\(y\\), we first sort the data:\n81, 93, 100, 103, 109, 110\nNow, since there is an even number of values (\\(n = 6\\)), we take the sample mean of the values in positions 3 and 4, or the values 100 and 103. So the median for \\(y\\) is:\n\\[\\frac{100 + 103}{2} = \\frac{203}{2} = 101.5\\]\nNote that the median does not necessarily need to be a value in the data set - it describes a position in the data set.\nThe median is the value such that at least half of the observations are less than or equal to the median, and at least half of the observations are greater than or equal to the median. Effecitvely, the median divides the data set into halves.\nIn R, we can just use the median() fnction:\n\nmedian(x)\n\n[1] 85\n\n\n\nmedian(y)\n\n[1] 101.5\n\n\nOnce nice aspect here is that the R function takes care of the sorting.\n\n\n5.2.3 The Sample Quartiles (\\(Q_1\\) and \\(Q_3\\))\nWe just saw how the median can split a data set into halves. On occasion, we will want to chop up the data set into more pieces. Eventually, we will discuss the idea of a percentile, but for now we will focus on quartiles.\nThe first quartile, often denoted as \\(Q_1\\), is the value that divides the bottom 25% of the data set from the upper 75% of the data set. Mechanically, to find \\(Q_1\\), we find the median of the data that are less than or equal to the median.\nThe third quartile, often denoted as \\(Q_3\\), is the value that divides the bottom 75% of the data set from the upper 25% of the data set. Mechanically, to find \\(Q_3\\), we find the median of the data that are greater than or equal to the median.\nTo find quartiles, we will use the quantile function (notice the difference in spelling!). The syntax is as follows:\nquantile(data,probs)\nWhere data is your data set and probs is a collection of the corresponding percentile values."
+  }
+]
